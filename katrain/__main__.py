@@ -640,6 +640,14 @@ class KaTrainGui(Screen, KaTrainBase):
             clipboard = response.data.decode("utf-8")
 
         try:
+            import hen
+            parsed_hen = hen.Hen()
+            parsed_hen.parse(clipboard)
+            clipboard = parsed_hen.to_sgf()
+        except Exception:
+            pass
+
+        try:
             move_tree = KaTrainSGF.parse_sgf(clipboard)
         except Exception as exc:
             self.controls.set_status(
