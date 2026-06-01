@@ -19,6 +19,9 @@ msgstr "棋譜保存"
 msgid "menu:load"
 msgstr "棋譜読込"
 
+msgid "menu:import_position"
+msgstr "局面をインポート"
+
 msgid "menu:settings"
 msgstr "一般・エンジン設定"
 
@@ -262,6 +265,9 @@ msgstr "この手に対するコメント記入欄（SGF記録用）"
 msgid "load sgf title"
 msgstr "SGFファイルを読み込んで解析"
 
+msgid "import position title"
+msgstr "HEN または PNG+hen から局面をインポート"
+
 msgid "load sgf fast analysis"
 msgstr "簡易解析"
 
@@ -459,6 +465,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "SGFのロードに失敗しました：{error}"
+
+msgid "Failed to import position"
+msgstr "局面のインポートに失敗しました: {error}"
 
 msgid "Kata exe not found"
 msgstr "KataGoの実行ファイル {exe} がありません。一般設定を確認してください。"

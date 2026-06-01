@@ -19,6 +19,9 @@ msgstr "Partie speichern"
 msgid "menu:load"
 msgstr "Partie laden"
 
+msgid "menu:import_position"
+msgstr "Position importieren"
+
 msgid "menu:settings"
 msgstr "Allgemeine Einstellungen"
 
@@ -237,6 +240,9 @@ msgstr "Deine SGF-Anmerkungen für diese Position."
 msgid "load sgf title"
 msgstr "SGF-Datei für Analyse laden"
 
+msgid "import position title"
+msgstr "Position aus HEN oder PNG+hen importieren"
+
 msgid "load sgf fast analysis"
 msgstr "Schnelle Analyse verwenden"
 
@@ -433,6 +439,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "SGF konnte nicht geladen werde: {error}"
+
+msgid "Failed to import position"
+msgstr "Position konnte nicht importiert werden: {error}"
 
 msgid "Starting Kata failed"
 msgstr ""

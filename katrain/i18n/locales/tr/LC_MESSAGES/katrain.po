@@ -22,6 +22,9 @@ msgstr "Oyunu Farklı Kaydet..."
 msgid "menu:load"
 msgstr "Oyun Yükle"
 
+msgid "menu:import_position"
+msgstr "Konumu İçe Aktar"
+
 msgid "menu:settings"
 msgstr "Genel ve Motor Ayarları"
 
@@ -363,6 +366,9 @@ msgstr "Bu pozisyonla ilgili SGF notlarınızı yazın."
 msgid "load sgf title"
 msgstr "Analiz Edilecek SGF Dosyasını Yükle"
 
+msgid "import position title"
+msgstr "HEN veya PNG+hen'den konumu içe aktar"
+
 # sgf load button
 msgid "Load File"
 msgstr "Dosya Yükle"
@@ -684,6 +690,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "SGF yüklenemedi: {error}"
+
+msgid "Failed to import position"
+msgstr "Konum içe aktarılamadı: {error}"
 
 msgid "Kata exe not found"
 msgstr ""

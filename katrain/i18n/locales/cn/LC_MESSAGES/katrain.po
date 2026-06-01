@@ -19,6 +19,9 @@ msgstr "保存对局"
 msgid "menu:load"
 msgstr "加载对局"
 
+msgid "menu:import_position"
+msgstr "导入局面"
+
 msgid "menu:settings"
 msgstr "通用和引擎设置"
 
@@ -233,6 +236,9 @@ msgstr "SGF评价"
 msgid "load sgf title"
 msgstr "加载SGF文件"
 
+msgid "import position title"
+msgstr "从 HEN 或 PNG+hen 导入局面"
+
 msgid "load sgf fast analysis"
 msgstr "快速分析"
 
@@ -423,6 +429,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "加载SGF失败. 错误类型: {error}"
+
+msgid "Failed to import position"
+msgstr "导入局面失败: {error}"
 
 msgid "Engine died unexpectedly"
 msgstr "引擎意外崩溃没有输出, 可能内存 不足: {error}"

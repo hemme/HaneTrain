@@ -1020,6 +1020,17 @@
         path: "."
         size_hint: 1,7
 
+<ImportPositionPopup>:
+    filesel: filesel
+    orientation: 'vertical'
+    I18NFileBrowser:
+        id: filesel
+        multiselect: False
+        file_must_exist: True
+        filters: ["*.png", "*.hen"]
+        path: "."
+        size_hint: 1,1
+
 <SaveSGFPopup>:
     filesel: filesel
     orientation: 'vertical'

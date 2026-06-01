@@ -22,6 +22,9 @@ msgstr "另存對局為..."
 msgid "menu:load"
 msgstr "載入對局"
 
+msgid "menu:import_position"
+msgstr "匯入局面"
+
 msgid "menu:settings"
 msgstr "一般和引擎設定"
 
@@ -305,6 +308,9 @@ msgstr "SGF註記"
 msgid "load sgf title"
 msgstr "載入SGF文件"
 
+msgid "import position title"
+msgstr "從 HEN 或 PNG+hen 匯入局面"
+
 # sgf load button
 msgid "Load File"
 msgstr "載入檔案"
@@ -546,6 +552,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "載入SGF失敗: {error}"
+
+msgid "Failed to import position"
+msgstr "匯入局面失敗：{error}"
 
 msgid "Kata exe not found"
 msgstr "KataGo執行檔 {exe} 不存在，請檢查一般設定。"

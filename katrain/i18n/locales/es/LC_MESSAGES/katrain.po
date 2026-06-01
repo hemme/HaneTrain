@@ -19,6 +19,9 @@ msgstr "Guardar Juego"
 msgid "menu:load"
 msgstr "Cargar Juego"
 
+msgid "menu:import_position"
+msgstr "Importar posición"
+
 msgid "menu:settings"
 msgstr "Conf General y Motores"
 
@@ -238,6 +241,9 @@ msgstr "Acá las notas de tu SGF para la posición."
 msgid "load sgf title"
 msgstr "Cargar archivo SGF a Analizar"
 
+msgid "import position title"
+msgstr "Importar posición desde HEN o PNG+hen"
+
 msgid "load sgf fast analysis"
 msgstr "usar análisis rápido"
 
@@ -433,6 +439,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "Error al cargar SGF: {error}"
+
+msgid "Failed to import position"
+msgstr "Error al importar posición: {error}"
 
 msgid "Starting Kata failed"
 msgstr ""

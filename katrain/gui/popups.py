@@ -826,6 +826,21 @@ class LoadSGFPopup(BaseConfigPopup):
         self.filesel.button_clicked()
 
 
+class ImportPositionPopup(BaseConfigPopup):
+    def __init__(self, katrain):
+        super().__init__(katrain)
+        app = MDApp.get_running_app()
+        self.filesel.favorites = [
+            (os.path.abspath(app.gui.config("general/sgf_load")), "Last Load Dir"),
+            (os.path.abspath(app.gui.config("general/sgf_save")), "Last Save Dir"),
+        ]
+        self.filesel.path = os.path.abspath(os.path.expanduser(app.gui.config("general/sgf_load")))
+        self.filesel.select_string = "Import"
+
+    def on_submit(self):
+        self.filesel.button_clicked()
+
+
 class SaveSGFPopup(BoxLayout):
     def __init__(self, suggested_filename, **kwargs):
         super().__init__(**kwargs)

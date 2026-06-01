@@ -22,6 +22,9 @@ msgstr "Зберегти гру як..."
 msgid "menu:load"
 msgstr "Завантажити гру"
 
+msgid "menu:import_position"
+msgstr "Імпорт позиції"
+
 msgid "menu:settings"
 msgstr "Загальні налаштування"
 
@@ -380,6 +383,9 @@ msgstr "Ваші нотатки SGF для цієї позиції тут."
 msgid "load sgf title"
 msgstr "Загрузити SGF-файл для аналізу"
 
+msgid "import position title"
+msgstr "Імпорт позиції з HEN або PNG+hen"
+
 # sgf load button
 msgid "Load File"
 msgstr "Загрузити файл"
@@ -704,6 +710,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "Не вдалося відкрити SGF: {error}"
+
+msgid "Failed to import position"
+msgstr "Не вдалося імпортувати позицію: {error}"
 
 msgid "Kata exe not found"
 msgstr ""

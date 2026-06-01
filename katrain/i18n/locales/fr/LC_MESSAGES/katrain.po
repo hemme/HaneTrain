@@ -19,6 +19,9 @@ msgstr "Enregistrer"
 msgid "menu:load"
 msgstr "Charger une partie"
 
+msgid "menu:import_position"
+msgstr "Importer une position"
+
 msgid "menu:settings"
 msgstr "Paramètres généraux"
 
@@ -256,6 +259,9 @@ msgstr "Rédigez une note SGF concernant la position en cours."
 msgid "load sgf title"
 msgstr "Charger le fichier SGF à analyser"
 
+msgid "import position title"
+msgstr "Importer une position depuis HEN ou PNG+hen"
+
 msgid "load sgf fast analysis"
 msgstr "Analyse rapide"
 
@@ -483,6 +489,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "Impossible de charger le SGF: {error}"
+
+msgid "Failed to import position"
+msgstr "Échec de l'importation de la position : {error}"
 
 msgid "Kata model not found"
 msgstr ""

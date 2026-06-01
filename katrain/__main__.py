@@ -97,7 +97,7 @@ from katrain.core.engine import KataGoEngine
 from katrain.core.contribute_engine import KataGoContributeEngine
 from katrain.core.game import Game, IllegalMoveException, KaTrainSGF, BaseGame
 from katrain.core.sgf_parser import Move, ParseError
-from katrain.gui.popups import ConfigPopup, LoadSGFPopup, NewGamePopup, ConfigAIPopup
+from katrain.gui.popups import ConfigPopup, LoadSGFPopup, ImportPositionPopup, NewGamePopup, ConfigAIPopup
 from katrain.gui.theme import Theme
 from kivymd.app import MDApp
 
@@ -121,6 +121,7 @@ class KaTrainGui(Screen, KaTrainBase):
 
         self.new_game_popup = None
         self.fileselect_popup = None
+        self.import_position_popup = None
         self.config_popup = None
         self.ai_settings_popup = None
         self.teacher_settings_popup = None
@@ -192,7 +193,7 @@ class KaTrainGui(Screen, KaTrainBase):
         sgf_args = [
             f
             for f in sys.argv[1:]
-            if os.path.isfile(f) and any(f.lower().endswith(ext) for ext in ["sgf", "ngf", "gib"])
+            if os.path.isfile(f) and any(f.lower().endswith(ext) for ext in ["sgf", "ngf", "gib", "png"])
         ]
         if sgf_args:
             self.load_sgf_file(sgf_args[0], fast=True, rewind=True)
@@ -560,12 +561,31 @@ class KaTrainGui(Screen, KaTrainBase):
         try:
             file = os.path.abspath(file)
             move_tree = KaTrainSGF.parse_file(file)
-        except (ParseError, FileNotFoundError) as e:
+        except (ParseError, FileNotFoundError, Exception) as e:
             self.log(i18n._("Failed to load SGF").format(error=e), OUTPUT_ERROR)
             return
         self._do_new_game(move_tree=move_tree, analyze_fast=fast, sgf_filename=file)
         if not rewind:
             self.game.redo(999)
+
+    def import_position_file(self, file):
+        if self.contributing:
+            return
+        try:
+            file = os.path.abspath(file)
+            import hen
+            parsed_hen = hen.Hen.from_png(file)
+            move_tree = KaTrainSGF.parse_sgf(parsed_hen.to_sgf())
+        except Exception as e:
+            self.log(i18n._("Failed to import position").format(error=e), OUTPUT_ERROR)
+            return
+        self._do_new_game(move_tree=move_tree, analyze_fast=True, sgf_filename=file)
+
+    def _on_dropfile(self, file):
+        if file.lower().endswith((".png", ".hen")):
+            self.import_position_file(file)
+        else:
+            self.load_sgf_file(file)
 
     def _do_analyze_sgf_popup(self):
         if not self.fileselect_popup:
@@ -590,6 +610,30 @@ class KaTrainGui(Screen, KaTrainBase):
             popup_contents.filesel.on_submit = readfile
         self.fileselect_popup.open()
         self.fileselect_popup.content.filesel.ids.list_view._trigger_update()
+
+    def _do_import_position_popup(self):
+        if not self.import_position_popup:
+            popup_contents = ImportPositionPopup(self)
+            popup_contents.filesel.path = os.path.abspath(os.path.expanduser(self.config("general/sgf_load", ".")))
+            self.import_position_popup = I18NPopup(
+                title_key="import position title", size=[dp(1200), dp(800)], content=popup_contents
+            ).__self__
+
+            def readfile(*_args):
+                filename = popup_contents.filesel.filename
+                self.import_position_popup.dismiss()
+                path, file = os.path.split(filename)
+                if path != self.config("general/sgf_load"):
+                    self.log(f"Updating sgf load path default to {path}", OUTPUT_DEBUG)
+                    self._config["general"]["sgf_load"] = path
+                popup_contents.update_config(False)
+                self.save_config("general")
+                self.import_position_file(filename)
+
+            popup_contents.filesel.on_success = readfile
+            popup_contents.filesel.on_submit = readfile
+        self.import_position_popup.open()
+        self.import_position_popup.content.filesel.ids.list_view._trigger_update()
 
     def _do_save_game(self, filename=None):
         filename = filename or self.game.sgf_filename
@@ -786,6 +830,8 @@ class KaTrainGui(Screen, KaTrainBase):
             self("new-game-popup")
         elif keycode[1] == Theme.KEY_LOAD_GAME and ctrl_pressed:
             self("analyze-sgf-popup")
+        elif keycode[1] == Theme.KEY_IMPORT_POSITION and ctrl_pressed:
+            self("import-position-popup")
         elif keycode[1] == Theme.KEY_SAVE_GAME and ctrl_pressed:
             self("save-game")
         elif keycode[1] == Theme.KEY_SAVE_GAME_AS and ctrl_pressed:
@@ -892,7 +938,7 @@ class KaTrainApp(MDApp):
         Builder.load_file(kv_file)
 
         Window.bind(on_request_close=self.on_request_close)
-        Window.bind(on_dropfile=lambda win, file: self.gui.load_sgf_file(file.decode("utf8")))
+        Window.bind(on_dropfile=lambda win, file: self.gui._on_dropfile(file.decode("utf8")))
         self.gui = KaTrainGui()
         Builder.load_file(popup_kv_file)
 

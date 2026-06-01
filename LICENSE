@@ -15,6 +15,8 @@ For on related licenses for these binaries and libraries see https://github.com/
 
 4. The Noto Sans fonts from google which are covered by the SIL open font license v1.1 included in the katrain/fonts directory.
 
+5. The Python library for Hemme Notation (HEN) Copyright by hemme (Marco Mariotti) under the MIT license.
+
 -----------------------------------------------------------------------------------------
 Aside from the above, the license for all other content in this repository is as follows:
 -----------------------------------------------------------------------------------------

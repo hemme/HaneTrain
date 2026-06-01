@@ -19,6 +19,9 @@ msgstr "SGF 파일 저장하기"
 msgid "menu:load"
 msgstr "SGF 파일 불러오기"
 
+msgid "menu:import_position"
+msgstr "국면 가져오기"
+
 #. Engine as in the AI program powering the analysis
 msgid "menu:settings"
 msgstr "일반 설정 및 엔진 설정"
@@ -234,6 +237,9 @@ msgstr "이 국면에서 SGF 파일에 첨부할 주석입니다."
 msgid "load sgf title"
 msgstr "분석할 SGF 파일 불러오기"
 
+msgid "import position title"
+msgstr "HEN 또는 PNG+hen에서 국면 가져오기"
+
 msgid "load sgf fast analysis"
 msgstr "빠르게 분석하기"
 
@@ -431,6 +437,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "SGF 파일을 불러올 수 없습니다: {error}"
+
+msgid "Failed to import position"
+msgstr "국면 가져오기 실패: {error}"
 
 msgid "Kata exe not found"
 msgstr "KataGo 실행 파일 {exe}이 존재하지 않습니다. 일반 설정을 확인해 주십시오."

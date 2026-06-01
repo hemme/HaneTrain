@@ -28,6 +28,9 @@ msgstr "Save Game As..."
 msgid "menu:load"
 msgstr "Load Game"
 
+msgid "menu:import_position"
+msgstr "Import Position"
+
 msgid "menu:settings"
 msgstr "General & Engine Settings"
 
@@ -386,6 +389,9 @@ msgstr "Your SGF notes for this position here."
 msgid "load sgf title"
 msgstr "Load SGF File to Analyze"
 
+msgid "import position title"
+msgstr "Import board position from HEN or PNG+hen"
+
 # sgf load button
 msgid "Load File"
 msgstr "Load File"
@@ -710,6 +716,9 @@ msgstr ""
 
 msgid "Failed to load SGF"
 msgstr "Failed to load SGF: {error}"
+
+msgid "Failed to import position"
+msgstr "Failed to import position: {error}"
 
 msgid "Kata exe not found"
 msgstr "KataGo binary {exe} does not exist, please check general settings."
